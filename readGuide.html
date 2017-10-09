@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>阅读指导</title>
+		<script type="text/javascript" src="js/device.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="header">
+				<div class="h_title active" onclick="changeTypeLabel('small',this)">小班</div>
+				<div class="h_title" onclick="changeTypeLabel('middle',this)">中班</div>
+				<div class="h_title" onclick="changeTypeLabel('big',this)">大班</div>
+				<div class="red_line"></div>
+			</div>
+
+			<style>
+				.header {
+					height: 0.82rem;
+					width: 100%;
+					background: #fff;
+					position: fixed;
+					left: 0;
+					top: 0;
+					z-index: 9999;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					align-items: center;
+				}
+				
+				.red_line {
+					position: absolute;
+					left: 0;
+					bottom: -0.06rem;
+					width: 33.3%;
+					height: 0.06rem;
+					background: #EA3253;
+				}
+				
+				.h_title {
+					font-size: 0.28rem;
+					color: #333;
+				}
+				
+				.icon-bottom {
+					width: 0.24rem;
+					height: 0.24rem;
+					vertical-align: middle;
+					margin-left: 0.08rem;
+				}
+				
+				.active {
+					color: #EA3253;
+				}
+				
+				.line2 {
+					width: 100%;
+					height: 0.06rem;
+					background: #F4F4F4;
+				}
+				
+				.section_tite {
+					margin: 0.36rem 0;
+					font-size: 0.28rem;
+					color: #555;
+					letter-spacing: 1px;
+					border-left: 0.06rem solid red;
+					padding-left: 0.24rem;
+				}
+				
+				.section_item {
+					font-size: 0.25rem;
+					color: #333;
+					padding: 0 0.24rem;
+					margin-bottom: 0.36rem;
+					letter-spacing: 0.01rem;
+					text-align：justify;
+					font-family: "微软雅黑";
+				}
+			</style>
+			<div class="line2" style="margin-top: 0.8rem;"></div>
+			<div class="small" style="display: none;">
+				<div class="section_tite">
+					引言，为什么要开展早期阅读
+				</div>
+				<div class="section_item">
+					现代社会，阅读能力被认为是获得成功的基础，研究表明，3-8 岁是儿童学习早期阅读和读写的关键期。因此在发展幼儿口头语 言的同时，要帮助幼儿做好学习书面语言的准备。 <br /> 2001年教育部颁发的《幼儿园教育指导纲要》，第一次明确地 把幼儿的早期阅读纳入语言教育的内容和要求之中，提出要“培 养幼儿对生活中常见的简单标识和文字符号的兴趣；利用图书、 绘画和其他多种形式，引发幼儿对书籍和书写的兴趣，培养前阅 读和前书写技能。”并在2013年制订了《3-6岁儿童学习与发展 指南》
+				</div>
+				<div class="line2" style="margin-top: 0.17rem;height: 0.16rem;"></div>
+				<div class="section_tite">
+					在阅读兴趣方面的要求
+				</div>
+				<div class="section_item">
+					（一）主动要求成人讲故事、读图书。 <br /> （二）喜欢跟读韵律感强的儿歌、童谣。 <br /> （三）爱护图书，不乱撕、乱扔。
+				</div>
+				<div class="line2" style="margin-top: 0.17rem;height: 0.16rem;"></div>
+				<div class="section_tite">
+					对初步阅读理解能力的要求
+				</div>
+				<div class="section_item" style="margin-bottom: 1.5rem;">
+					（一）能听懂短小的儿歌或故事。<br /> （二）会看画面，能根据画面说出图中有什么，发生了什么事等。
+					<br /> （三）能理解图书上的文字和画面是相互对应的，是用来表达画面上意义的。
+				</div>
+				<div class="footer">
+					<a href="index.html">
+						<div class="footer_item">
+							<img src="img/icon-加油站-选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">加油站</div>
+						</div>
+					</a>
+					<a href="huibenguan.html">
+						<div class="footer_item">
+							<img src="img/icon-绘本馆-未选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">绘本馆</div>
+						</div>
+					</a>
+					<a href="shufang.html">
+						<div class="footer_item">
+							<img src="img/icon-书房-未选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">书房</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="middle" style="display: none;">
+				<div class="section_tite">
+					引言，为什么要开展早期阅读
+				</div>
+				<div class="section_item">
+					现代社会，阅读能力被认为是获得成功的基础，研究表明，3-8 岁是儿童学习早期阅读和读写的关键期。因此在发展幼儿口头语 言的同时，要帮助幼儿做好学习书面语言的准备。 <br /> 2001年教育部颁发的《幼儿园教育指导纲要》，第一次明确地 把幼儿的早期阅读纳入语言教育的内容和要求之中，提出要“培 养幼儿对生活中常见的简单标识和文字符号的兴趣；利用图书、 绘画和其他多种形式，引发幼儿对书籍和书写的兴趣，培养前阅 读和前书写技能。”并在2013年制订了《3-6岁儿童学习与发展 指南》
+				</div>
+				<div class="line2" style="margin-top: 0.17rem;height: 0.16rem;"></div>
+				<div class="section_tite">
+					在阅读兴趣方面的要求
+				</div>
+				<div class="section_item">
+					（一）反复看自己喜欢的图书。<br /> （二）喜欢把听过的故事或看过的图书讲给别人听。
+					<br /> （三）对生活中常见的标识、符号感兴趣，知道表示一定的意义。
+				</div>
+				<div class="line2" style="margin-top: 0.17rem;height: 0.16rem;"></div>
+				<div class="section_tite">
+					对初步阅读理解能力的要求
+				</div>
+				<div class="section_item" style="margin-bottom: 1.5rem;">
+					（一）能大体讲出听故事的主要内容。<br /> （二）能根据连续画面提供的信息，大致说出故事的情节。
+					<br /> （三）能随着作品的展开产生喜悦、担忧等相应的情绪反应，体会 作品所表达的情绪情感。
+				</div>
+				<div class="footer">
+					<a href="index.html">
+						<div class="footer_item">
+							<img src="img/icon-加油站-选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">加油站</div>
+						</div>
+					</a>
+					<a href="huibenguan.html">
+						<div class="footer_item">
+							<img src="img/icon-绘本馆-未选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">绘本馆</div>
+						</div>
+					</a>
+					<a href="shufang.html">
+						<div class="footer_item">
+							<img src="img/icon-书房-未选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">书房</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="big">
+				<div class="section_tite">
+					引言，为什么要开展早期阅读
+				</div>
+				<div class="section_item">
+					现代社会，阅读能力被认为是获得成功的基础，研究表明，3-8 岁是儿童学习早期阅读和读写的关键期。因此在发展幼儿口头语 言的同时，要帮助幼儿做好学习书面语言的准备。 <br /> 2001年教育部颁发的《幼儿园教育指导纲要》，第一次明确地 把幼儿的早期阅读纳入语言教育的内容和要求之中，提出要“培 养幼儿对生活中常见的简单标识和文字符号的兴趣；利用图书、 绘画和其他多种形式，引发幼儿对书籍和书写的兴趣，培养前阅 读和前书写技能。”并在2013年制订了《3-6岁儿童学习与发展 指南》
+				</div>
+				<div class="line2" style="margin-top: 0.17rem;height: 0.16rem;"></div>
+				<div class="section_tite">
+					在阅读兴趣方面的要求
+				</div>
+				<div class="section_item">
+					（一）专注地阅读图书。<br /> （二）喜欢与他人一起谈论图书和故事的有关内容。
+					<br /> （三）对图书和生活情境中出现的文字符号感兴趣，知道文字表示 一定的意义。
+				</div>
+				<div class="line2" style="margin-top: 0.17rem;height: 0.16rem;"></div>
+				<div class="section_tite">
+					对初步阅读理解能力的要求
+				</div>
+				<div class="section_item" style="margin-bottom: 1.5rem;">
+					（一）能说出所阅读的幼儿文学作品的主要内容。<br /> （二）能根据故事的部分情节或图书画面的线索猜想故事情节的发 展，或续编、创编故事。<br /> （三）对看过的图书、听过的故事能说出自己的看法。
+					<br /> （四）能初步感受文学语言的美。
+				</div>
+				<div class="footer">
+					<a href="index.html">
+						<div class="footer_item">
+							<img src="img/icon-加油站-选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">加油站</div>
+						</div>
+					</a>
+					<a href="huibenguan.html">
+						<div class="footer_item">
+							<img src="img/icon-绘本馆-未选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">绘本馆</div>
+						</div>
+					</a>
+					<a href="shufang.html">
+						<div class="footer_item">
+							<img src="img/icon-书房-未选中@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">书房</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="dist/js/swiper.min.js"></script>
+		<script src="service/service.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			function changeTypeLabel(type, obj) {
+				switch(type) {
+					case 'small':
+						$('.red_line').css('left', '0');
+						$('.small').css('display', 'block');
+						$('.middle').css('display', 'none');
+						$('.big').css('display', 'none');
+						break;
+					case 'middle':
+						$('.red_line').css('left', '33.3%');
+						$('.small').css('display', 'none');
+						$('.middle').css('display', 'block');
+						$('.big').css('display', 'none');
+						break;
+					case 'big':
+						$('.red_line').css('left', '66.6%');
+						$('.small').css('display', 'none');
+						$('.middle').css('display', 'none');
+						$('.big').css('display', 'block');
+						break;
+					default:
+						break;
+				}
+				$(obj).addClass('active').siblings().removeClass('active')
+
+			}
+		</script>
+	</body>
+
+</html>

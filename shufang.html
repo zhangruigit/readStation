@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>我的书房</title>
+		<script type="text/javascript" src="js/device.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+	</head>
+
+	<body>
+		<style>
+			.user_page {
+				width: 100%;
+				height: 100%;
+				background: #efeff4;
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 99999;
+				display: none;
+			}
+			
+			.user_page .user_page_title {
+				font-size: 0.28rem;
+				color: #888;
+				padding: 0.25rem 0;
+				padding-left: 0.4rem;
+			}
+			
+			.user_page_input {
+				font-size: 0.28rem;
+				color: #888;
+				background: #FFF;
+				padding: 0.25rem 0;
+				padding-left: 0.4rem;
+				border-bottom: 0.01rem solid #efeff4;
+			}
+			
+			.user_page_input input {
+				text-align: center;
+				border: 1px solid #fff;
+			}
+			
+			.duihao {
+				width: 0.4rem;
+				height: 0.4rem;
+				vertical-align: middle;
+				float: right;
+				padding-right: 0.4rem;
+			}
+			
+			.sureBtn {
+				width: 3.6rem;
+				color: #fff;
+				font-size: 0.3rem;
+				background: #ea3253;
+				border-radius: 0.06rem;
+				margin: 0.5rem auto;
+				text-align: center;
+				padding: 0.18rem 0;
+				letter-spacing: 1px;
+			}
+		</style>
+		<div class="user_page">
+			<div class="user_page_title">
+				请输入幼儿名称
+			</div>
+			<div class="user_page_input">
+				幼儿<input type="text" placeholder="幼儿名" />
+			</div>
+			<div class="user_page_title">
+				幼儿性别选择
+			</div>
+			<div class="user_page_input" onclick="changeSex('men')">
+				男孩<span class="men"><img src="img/对号.png" class="duihao" /></span>
+			</div>
+			<div class="user_page_input" onclick="changeSex('woman')">
+				女孩<span class="woman"></span>
+			</div>
+			<div class="user_page_title">
+				年龄班级选择
+			</div>
+			<div class="user_page_input" onclick="changeClass('small')">
+				小班<span class="small"><img src="img/对号.png" class="duihao" /></span>
+			</div>
+			<div class="user_page_input" onclick="changeClass('middle')">
+				中班<span class="middle"></span>
+			</div>
+			<div class="user_page_input" onclick="changeClass('big')">
+				大班<span class="big"></span>
+			</div>
+			<div class="sureBtn" onclick="sureBtn()">确认</div>
+		</div>
+		<style>
+			.user_header1 {
+				height: 1.5rem;
+				width: 100%;
+				background: url(img/组-7-拷贝@2x.png) no-repeat center bottom;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+			}
+			
+			.user_img {
+				width: 1.2rem;
+				height: 1.2rem;
+				border-radius: 50%;
+			}
+			
+			.user_wrap {
+				color: #fff;
+				font-size: 0.24rem;
+				position: absolute;
+				top: 50%;
+				right: 0.44rem;
+				transform: translate(0, -50%);
+				-webkit-transform: translate(0, -50%);
+			}
+			
+			.icon_right {
+				width: 0.26rem;
+				height: 0.22rem;
+				vertical-align: middle;
+			}
+			
+			.nav {
+				height: 1.2rem;
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+				background: #fff;
+			}
+			.nav a{
+				text-decoration: none;
+			}
+			.nav_item {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.nav_icon_img {
+				height: 0.64rem;
+				width: 0.64rem;
+			}
+			
+			.nav_nav_title {
+				font-size: 0.2rem;
+				color: #555;
+				/*ea3253*/
+				margin-top: 0.1rem;
+				letter-spacing: 1px;
+			}
+			
+			.line2 {
+				width: 100%;
+				height: 0.16rem;
+				background: #F4F4F4;
+			}
+			
+			.user_header2 {
+				height: 1.5rem;
+				width: 100%;
+				background: url(img/组-7-拷贝@2x.png) no-repeat center bottom;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: relative;
+			}
+			
+			.name {
+				font-size: 0.32rem;
+				color: #fff;
+				margin-bottom: 0.1rem;
+			}
+			
+			.type_count {
+				font-size: 0.26rem;
+				color: #fffefe;
+			}
+			
+			.user_info {
+				display: flex;
+				flex-direction: row;
+				padding-left: 0.44rem;
+			}
+			
+			.name_type_count {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				padding-left: 0.22rem;
+			}
+			
+			.section_tite {
+				margin: 0.36rem 0;
+				font-size: 0.28rem;
+				color: #555;
+				letter-spacing: 1px;
+				border-left: 0.06rem solid red;
+				padding-left: 0.24rem;
+			}
+			
+			.section_item {
+				margin: 0 0.24rem;
+				display: flex;
+				justify-content: space-around;
+				align-items: baseline;
+				flex-flow: row wrap;
+				align-content: space-between;
+				margin-bottom: 1.2rem;
+			}
+			
+			.section_item .item {
+				display: inline-block;
+				position: relative;
+				margin-bottom: 0.2rem;
+			}
+			
+			.section_item .item .title {
+				font-size: 0.26rem;
+				color: #555;
+			}
+			
+			.section_item .item .count {
+				font-size: 0.18rem;
+				color: #969696;
+				margin-top: 0.06rem;
+			}
+			
+			.section_item .item .img {
+				width: 2.2rem;
+				height: 2.5rem;
+			}
+			
+			.moreBtn img {
+				width: 0.3rem;
+				height: 0.26rem;
+				vertical-align: middle;
+			}
+		</style>
+		<div class="container">
+			<!--<div class="user_header1">
+				<img src="img/个人中心-头像-未定义@2x.png" class="user_img" />
+				<div class="user_wrap">
+					个人中心<img src="img/right (1).png" class="icon_right" />
+				</div>
+			</div>-->
+			<div class="user_header2">
+				<div class="user_info">
+					<img src="img/u=1428815303,1685401091&fm=214&gp=0.png" class="user_img" />
+					<div class="name_type_count">
+						<div class="name">欢欢</div>
+						<div class="type_count">大班 已借23本</div>
+					</div>
+				</div>
+				<div class="user_wrap" onclick="toUser()">
+					个人中心<img src="img/right (1).png" class="icon_right" />
+				</div>
+			</div>
+			<div class="line2"></div>
+			<div class="nav">
+				<a href="shareHuiben.html">
+				<div class="nav_item">
+					<img src="img/btn-书房-分享绘本@2x.png" class="nav_icon_img" />
+					<div class="nav_nav_title">分享绘本</div>
+				</div>
+				
+				<a href="borrowHistory.html">
+					<div class="nav_item">
+						<img src="img/btn-书房-借阅历史@2x.png" class="nav_icon_img" />
+						<div class="nav_nav_title">借阅历史</div>
+					</div>
+				</a>
+			</div>
+			<div class="line2"></div>
+			<div class="section_tite">
+				图书借阅
+			</div>
+			<div class="section_item">
+				<div class="item">
+					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
+
+					<div class="title">约瑟夫有件旧外套</div>
+					<div class="count">08月12日开始借阅</div>
+				</div>
+				<div class="item">
+					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
+
+					<div class="title">约瑟夫有件旧外套</div>
+					<div class="count">08月12日开始借阅</div>
+				</div>
+				<div class="item">
+					<img src="img/绘本馆-绘本-封面3@2x.png" class="img" />
+
+					<div class="title">约瑟夫有件旧外套</div>
+					<div class="count">08月12日开始借阅</div>
+				</div>
+				<div class="item">
+					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
+
+					<div class="title">约瑟夫有件旧外套</div>
+					<div class="count">08月12日开始借阅</div>
+				</div>
+				<div class="item">
+					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
+
+					<div class="title">约瑟夫有件旧外套</div>
+					<div class="count">08月12日开始借阅</div>
+				</div>
+				<div class="item">
+					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
+
+					<div class="title">约瑟夫有件旧外套</div>
+					<div class="count">08月12日开始借阅</div>
+				</div>
+			</div>
+			<div class="footer">
+				<a href="index.html">
+					<div class="footer_item">
+						<img src="img/icon-加油站-未选中@2x.png" class="footer_icon_img" />
+						<div class="footer_nav_title">加油站</div>
+					</div>
+				</a>
+				<a href="huibenguan.html">
+					<div class="footer_item">
+						<img src="img/icon-绘本馆-未选中@2x.png" class="footer_icon_img" />
+						<div class="footer_nav_title">绘本馆</div>
+					</div>
+				</a>
+				<a href="shufang.html">
+					<div class="footer_item">
+						<img src="img/icon-书房-选中@2x.png" class="footer_icon_img" />
+						<div class="footer_nav_title">书房</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="dist/js/swiper.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			function toUser() {
+				$('.user_page').css('display', 'block');
+				$('title').text('个人中心');
+			}
+
+			function sureBtn() {
+				$('.user_page').css('display', 'none');
+				$('title').text('我的书房');
+			}
+
+			function changeClass(type) {
+				switch(type) {
+					case 'small':
+						$('.small').html('');
+						$('.small').append('<img src="img/对号.png" class="duihao" />');
+						$('.middle').html('');
+						$('.big').html('');
+						break;
+					case 'middle':
+						$('.middle').html('');
+						$('.middle').append('<img src="img/对号.png" class="duihao" />');
+						$('.small').html('');
+						$('.big').html('');
+						break;
+					case 'big':
+						$('.big').html('');
+						$('.big').append('<img src="img/对号.png" class="duihao" />');
+						$('.middle').html('');
+						$('.small').html('');
+						break;
+					default:
+						break;
+				}
+
+			}
+			function changeSex(type) {
+				switch(type) {
+					case 'men':
+						$('.men').html('');
+						$('.men').append('<img src="img/对号.png" class="duihao" />');
+						$('.woman').html('');
+						break;
+					case 'woman':
+						$('.woman').html('');
+						$('.woman').append('<img src="img/对号.png" class="duihao" />');
+						$('.men').html('');
+						break;
+					default:
+						break;
+				}
+
+			}
+			
+		</script>
+	</body>
+
+</html>

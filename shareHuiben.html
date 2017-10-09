@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>我的书房</title>
+		<script type="text/javascript" src="js/device.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+	</head>
+
+	<body>
+		<style>
+			body,
+			html {
+				background: #efeff4;
+			}
+			
+			.user_page {
+				width: 100%;
+				background: #efeff4;
+			}
+			
+			.user_page .user_page_title {
+				font-size: 0.28rem;
+				color: #888;
+				padding: 0.25rem 0;
+				padding-left: 0.4rem;
+			}
+			
+			.user_page_input {
+				font-size: 0.34rem;
+				color: #000;
+				background: #FFF;
+				padding: 0.25rem 0;
+				padding-left: 0.4rem;
+				border-bottom: 0.01rem solid #efeff4;
+			}
+			
+			.user_page_input input {
+				text-align: center;
+				border: 1px solid #fff;
+			}
+			
+			.user_page_input textarea {
+				text-align: left;
+				width: 99%;
+				border: 1px solid #fff;
+				color: red;
+			}
+			
+			.duihao {
+				width: 0.4rem;
+				height: 0.4rem;
+				vertical-align: middle;
+				float: right;
+				padding-right: 0.4rem;
+			}
+			
+			.sureBtn {
+				width: 3.6rem;
+				color: #fff;
+				font-size: 0.3rem;
+				background: #ea3253;
+				border-radius: 0.06rem;
+				margin: 0.5rem auto;
+				text-align: center;
+				padding: 0.18rem 0;
+				letter-spacing: 1px;
+			}
+			
+			.upload_img {
+				width: 1.6rem;
+				height: 1.6rem;
+				border: 0.01rem solid #fff;
+				position: relative;
+				text-align: center;
+				overflow: hidden;
+			}
+			
+			.uploadImgSize {
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+			
+			.line1 {
+				width: 50%;
+				margin: 0 auto;
+				border-bottom: 0.02rem solid #fff;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translateX(-50%);
+				-webkit-transform: translateX(-50%);
+			}
+			
+			.line2 {
+				height: 50%;
+				margin: 0 auto;
+				border-right: 0.02rem solid #fff;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+			}
+			
+			.more_check {
+				display: inline-block;
+				float: right;
+				width: 0.4rem;
+				height: 0.4rem;
+				border: 0.01rem solid #ccc;
+				border-radius: 50%;
+				margin-right: 0.4rem;
+			}
+			
+			.more_check_duihao {
+				width: 0.4rem;
+				height: 0.4rem;
+				vertical-align: middle;
+				float: right;
+			}
+			
+			.file {
+				position: relative;
+				display: inline-block;
+				background: #D0EEFF;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+				padding: 4px 12px;
+				overflow: hidden;
+				color: #1E88C7;
+				text-decoration: none;
+				text-indent: 0;
+				line-height: 20px;
+			}
+			
+			.file input {
+				position: absolute;
+				font-size: 100px;
+				right: 0;
+				top: 0;
+				opacity: 0;
+			}
+			
+			.file:hover {
+				background: #AADFFD;
+				border-color: #78C3F3;
+				color: #004974;
+				text-decoration: none;
+			}
+		</style>
+		<div class="user_page">
+			<div class="user_page_title">
+				请输入绘本名称
+			</div>
+			<div class="user_page_input">
+				名称<input type="text" placeholder="书名" />
+			</div>
+			<div class="user_page_title">
+				请输入绘本作者
+			</div>
+			<div class="user_page_input">
+				作者<input type="text" placeholder="作者名" />
+			</div>
+			<div class="user_page_title">
+				年龄班级选择
+			</div>
+			<div class="user_page_input" onclick="changeClass('small')">
+				小班<span class="small"><img src="img/对号.png" class="duihao" /></span>
+			</div>
+			<div class="user_page_input" onclick="changeClass('middle')">
+				中班<span class="middle"></span>
+			</div>
+			<div class="user_page_input" onclick="changeClass('big')">
+				大班<span class="big"></span>
+			</div>
+			<div class="user_page_title">
+				主题选择（多选）
+			</div>
+			<div id="">
+				<div class="user_page_input" onclick="selectMore(1)">
+					生命与爱<span class="more_check m1"></span>
+				</div>
+				<div class="user_page_input" onclick="selectMore(2)">
+					情绪认知<span class="more_check m2"></span>
+				</div>
+				<div class="user_page_input" onclick="selectMore(3)">
+					艺术想象<span class="more_check m3"></span>
+				</div>
+				<div class="user_page_input" onclick="selectMore(4)">
+					科学探索<span class="more_check m4"></span>
+				</div>
+				<div class="user_page_input" onclick="selectMore(5)">
+					儿童文学<span class="more_check m5"></span>
+				</div>
+				<div class="user_page_input" onclick="selectMore(6)">
+					少儿英语<span class="more_check m6"></span>
+				</div>
+			</div>
+			<div class="user_page_title">
+				请输入绘本内容简介
+			</div>
+			<div class="user_page_input">
+				<textarea name="" rows="4" cols="" placeholder="内容简介"></textarea>
+			</div>
+			<div class="user_page_title">
+				绘本图片(第一张默认为封面)
+			</div>
+			<div class="user_page_input">
+				<a href="javascript:;" class="file">
+					<div class="upload_img" id='image1'>
+						<img src="" class="uploadImgSize" />
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+					<input type="file" name="" id="file1"onchange=upLoadImg(this,1)>
+				</a>
+				<a href="javascript:;" class="file">
+					<div class="upload_img" id='image2'>
+						<img src="" class="uploadImgSize" />
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+					<input type="file" name="" id="file2"onchange=upLoadImg(this,2)>
+				</a>
+				<a href="javascript:;" class="file">
+					<div class="upload_img" id='image3'>
+						<img src="" class="uploadImgSize" />
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+					<input type="file" name="" id="file3"onchange=upLoadImg(this,3)>
+				</a>
+				<a href="javascript:;" class="file">
+					<div class="upload_img" id='image4'>
+						<img src="" class="uploadImgSize" />
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+					<input type="file" name="" id="file4"onchange=upLoadImg(this,4)>
+				</a>
+				<a href="javascript:;" class="file">
+					<div class="upload_img" id='image5'>
+						<img src="" class="uploadImgSize" />
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+					<input type="file" name="" id="file5"onchange=upLoadImg(this,5)>
+				</a>
+				<a href="javascript:;" class="file">
+					<div class="upload_img" id='image6'>
+						<img src="" class="uploadImgSize" />
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+					<input type="file" name="" id="file6" onchange=upLoadImg(this,6)>
+				</a>
+			</div>
+		</div>
+		<div class="sureBtn" onclick="sureShareBtn()">确认分享</div>
+
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="dist/js/swiper.min.js"></script>
+		<script>
+			function sureShareBtn(){
+				window.location.href='shufang.html';
+			}
+			function upLoadImg(obj,index) {
+				var imgFile = obj.files[0];
+				var fr = new FileReader();
+				fr.onload = function() {
+					document.getElementById('image'+index).getElementsByTagName('img')[0].src = fr.result;
+					//成功
+					$('.line1').css('display', 'none');
+					$('.line2').css('display', 'none');
+				};
+				fr.readAsDataURL(imgFile);
+			};
+
+			function selectMore(index) {
+				var str = '<img src="img/对号.png" class="more_check_duihao" />';
+				if($('.m' + index).children().length == 0) {
+					$('.m' + index).html('');
+					$('.m' + index).append(str);
+				} else {
+					$('.m' + index).html('');
+				}
+
+			}
+
+			function changeClass(type) {
+				switch(type) {
+					case 'small':
+						$('.small').html('');
+						$('.small').append('<img src="img/对号.png" class="duihao" />');
+						$('.middle').html('');
+						$('.big').html('');
+						break;
+					case 'middle':
+						$('.middle').html('');
+						$('.middle').append('<img src="img/对号.png" class="duihao" />');
+						$('.small').html('');
+						$('.big').html('');
+						break;
+					case 'big':
+						$('.big').html('');
+						$('.big').append('<img src="img/对号.png" class="duihao" />');
+						$('.middle').html('');
+						$('.small').html('');
+						break;
+					default:
+						break;
+				}
+
+			}
+		</script>
+	</body>
+
+</html>
