@@ -9,7 +9,6 @@
 		<script type="text/javascript" src="js/device.js"></script>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="dist/css/swiper.min.css">
 	</head>
 
 	<body>
@@ -293,29 +292,24 @@
 			}
 
 			function changeClass(type) {
+				$('.'+type).html('');
 				switch(type) {
 					case 'small':
-						$('.small').html('');
-						$('.small').append('<img src="img/对号.png" class="duihao" />');
 						$('.middle').html('');
 						$('.big').html('');
 						break;
 					case 'middle':
-						$('.middle').html('');
-						$('.middle').append('<img src="img/对号.png" class="duihao" />');
 						$('.small').html('');
 						$('.big').html('');
 						break;
 					case 'big':
-						$('.big').html('');
-						$('.big').append('<img src="img/对号.png" class="duihao" />');
 						$('.middle').html('');
 						$('.small').html('');
 						break;
 					default:
 						break;
 				}
-
+				$('.'+type).append('<img src="img/对号.png" class="duihao" />');
 			}
 		</script>
 	</body>
