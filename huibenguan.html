@@ -15,11 +15,12 @@
 	<body>
 		<div class="container">
 			<div class="header">
-				<div class="h_title active">热门</div>
+				<!--<div class="h_title active">热门</div>-->
 				<div class="h_title" onclick="changeType('age')">年龄<img src="img/bottom.png" class="icon-bottom type1" /></div>
-				<div class="h_title" onclick="changeType('master')">大师<img src="img/bottom.png" class="icon-bottom type2" /></div>
-				<div class="h_title" onclick="changeType('subject')">主题<img src="img/bottom.png" class="icon-bottom type3" /></div>
-				<div class="h_title">搜索</div>
+				<div class="h_title" onclick="changeType('subject')">主题<img src="img/bottom.png" class="icon-bottom type2" /></div>
+				<div class="h_title" onclick="changeType('prize')">大奖<img src="img/bottom.png" class="icon-bottom type3" /></div>
+				<div class="h_title" onclick="changeType('master')">大师<img src="img/bottom.png" class="icon-bottom type4" /></div>
+				<!--<div class="h_title">搜索</div>-->
 			</div>
 			<div class="modal" style="display: none;">
 				<div class="line2" style="margin-top: 0.8rem;"></div>
@@ -57,7 +58,7 @@
 				}
 				
 				.header {
-					height: 0.82rem;
+					height: 0.9rem;
 					width: 100%;
 					background: #fff;
 					position: fixed;
@@ -71,7 +72,7 @@
 				}
 				
 				.h_title {
-					font-size: 0.26rem;
+					font-size: 0.3rem;
 					color: #333;
 				}
 				
@@ -104,21 +105,28 @@
 				.section_item {
 					margin: 0 0.24rem;
 					display: flex;
-					justify-content: space-around;
+					justify-content: flex-start;
 					align-items: baseline;
 					flex-flow: row wrap;
 					align-content: space-between;
+					margin-bottom: 1rem;
+					    margin-top: 0.5rem;
 				}
 				
 				.section_item .item {
 					display: inline-block;
 					position: relative;
 					margin-bottom: 0.2rem;
+					width: 33%;
+					text-align: center;
 				}
 				
 				.section_item .item .title {
 					font-size: 0.26rem;
 					color: #555;
+					text-align: center;
+					overflow: hidden;
+    				white-space: nowrap;
 				}
 				
 				.section_item .item .count {
@@ -128,8 +136,7 @@
 				}
 				
 				.section_item .item .img {
-					width: 2.2rem;
-					height: 2.5rem;
+					width: 2rem;
 				}
 				
 				.moreBtn {
@@ -170,234 +177,140 @@
 					width: 0.6rem;
 					height: 0.6rem;
 				}
+				
+				.duihao {
+					width: 0.4rem;
+					height: 0.4rem;
+					vertical-align: middle;
+					float: right;
+					padding-right: 0.4rem;
+					position: absolute;
+					right: 0px;
+					top: 0.2rem;
+					display: none;
+				}
+				
+				.active {
+					display: block;
+				}
+				.item_wrap {
+				    max-height: 8rem;
+				    overflow: auto;
+				    overflow-x: hidden;
+				}
+				.nobooks{
+					width: 80%;
+				    margin: 4rem auto;
+				    text-align: center;
+				    font-size: 0.4rem;
+				    color: #ccc;
+				    letter-spacing: 1px;
+				}
 			</style>
-			<div class="line2" style="margin-top: 0.8rem;"></div>
-			<div class="section_tite">
-				热门推荐
-				<span class="moreBtn">更多<img src="img/right.png"/></span>
-			</div>
-			<div class="section_item">
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面3@2x.png" class="img" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-			</div>
 			<div class="line2" style="margin-top: 0.17rem;"></div>
-			<div class="section_tite">
-				小班榜单
-				<span class="moreBtn">更多<img src="img/right.png"/></span>
-			</div>
 			<div class="section_item">
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面3@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名二@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名三@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名二@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-			</div>
-			<div class="line2" style="margin-top: 0.17rem;"></div>
-			<div class="section_tite">
-				中班榜单
-				<span class="moreBtn">更多<img src="img/right.png"/></span>
-			</div>
-			<div class="section_item">
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面3@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名二@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名三@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名二@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-			</div>
-			<div class="line2" style="margin-top: 0.17rem;"></div>
-			<div class="section_tite">
-				大班榜单
-				<span class="moreBtn">更多<img src="img/right.png"/></span>
-			</div>
-			<div class="section_item" style="margin-bottom: 1.3rem;">
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面3@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名二@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名一@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面2@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名三@2x.png" class="sjx" />
-					<div class="item_type">在馆</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
-				<div class="item">
-					<img src="img/绘本馆-绘本-封面1@2x.png" class="img" />
-					<img src="img/绘本馆-热门-排名二@2x.png" class="sjx" />
-					<div class="item_type yijie">已借</div>
-					<div class="title">约瑟夫有件旧外套</div>
-					<div class="count">800人借阅</div>
-				</div>
+				
 			</div>
 			<div class="footer">
 				<a href="index.html">
 					<div class="footer_item">
-						<img src="img/icon-加油站-未选中@2x.png" class="footer_icon_img" />
+						<img src="img/icon-jiayouzhan_unselect2x.png" class="footer_icon_img" />
 						<div class="footer_nav_title">加油站</div>
 					</div>
 				</a>
 				<a href="huibenguan.html">
 					<div class="footer_item">
-						<img src="img/icon-绘本馆-选中@2x.png" class="footer_icon_img" />
+						<img src="img/icon-huiben_select2x.png" class="footer_icon_img" />
 						<div class="footer_nav_title">绘本馆</div>
 					</div>
 				</a>
 				<a href="shufang.html">
 					<div class="footer_item">
-						<img src="img/icon-书房-未选中@2x.png" class="footer_icon_img" />
-						<div class="footer_nav_title">书房</div>
+						<img src="img/icon-shufang_unselect@2x.png" class="footer_icon_img" />
+						<div class="footer_nav_title">我的</div>
 					</div>
 				</a>
 			</div>
 		</div>
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script src="dist/js/swiper.min.js"></script>
-		<script src="service/service.js"></script>
 
 		<!-- Initialize Swiper -->
 		<script>
+			var domain = 'http://ibook.qik56.com:8088';
+			//			var domain = 'http://192.168.1.88:8098';
+			var username = 'user1';
+			var nonce = Math.random().toString(36).substr(2);
+			var constant = null;
+			//请求常量，并加载所有数据
+			$(function() {
+				$.ajax({
+					url: domain + '/ostrich/queryConstant',
+					type: 'get',
+					data: { offset: 0, rows: 200, username: username, nonce: nonce, result: '123' },
+					success: function(res) {
+						if(res.statuscode == 200) {
+							constant = res;
+							//获取所有数据
+							getAllData();
+						}
+					}
+				});
+			});
+			//获取所有数据
+			function getAllData() {
+				var data = { username: username, nonce: nonce, result: '123', name: '', book_state: '', id: '', rows: 100, offset: 0 };
+				$.ajax({
+					url: domain + '/ibook/queryBook',
+					type: 'get',
+					data: data,
+					success: function(res) {
+						if(res.statuscode == 200) {
+							if(res.items.length==0){
+								var str='<div class="nobooks">~空空如也~</div>'
+								$('.section_item').html('');
+								$('.section_item').append(str);
+							}else{
+								bindData(res);
+							}
+
+						}
+					},
+					error: function(err) {
+						alert(err)
+					}
+				});
+			}
+			//循环绑定数据
+			function bindData(res) {
+				var str = '';
+				for(var i = res.items.length-1; i>=0; i--) {
+					str += '<div class="item" onclick="toBookDetal('+res.items[i].id+')">'
+					str += '<img src="' + res.items[i].cover_url + '" class="img" />'
+					str += '<div class="title">' + res.items[i].name + '</div>'
+					str += '</div>'
+				}
+				$('.section_item').html('');
+				$('.section_item').append(str);
+			}
+			//跳转到图书详情
+			function toBookDetal(id){
+				window.location.href='bookDetail.html?id='+id;
+			};
 			function changeType(type) {
+				if(constant == null) return;
 				switch(type) {
 					case 'age':
-						dom(data.age);
-						break;
-					case 'master':
-						dom(data.master);
+						dom(constant.book_type1, 'book_type1');
 						break;
 					case 'subject':
-						dom(data.subject);
+						dom(constant.book_type2, 'book_type2');
+						break;
+					case 'prize':
+						dom(constant.book_type3, 'book_type3');
+						break;
+					case 'master':
+						dom(constant.book_type4, 'book_type4');
 						break;
 					default:
 						break;
@@ -405,16 +318,53 @@
 				changeLabel(type);
 			}
 
-			function dom(data) {
+			function dom(data, type) {
 				var str = '';
 				for(var i = 0; i < data.length; i++) {
-					str += '<a href="javascript:void(0);" onclick="selectItem()"><div class="item">' + data[i].type + '</div></a>'
+					str += '<a href="javascript:void(0);" onclick="selectItem(' + "'" + data[i].code + "'," + "'" + type + "'," + 'this)"><div style="position:relative"><div class="item">' + data[i].descr + '</div><img src="img/duihao.png" class="duihao"></div></a>'
 				}
 				$('.item_wrap').html('');
 				$('.item_wrap').append(str);
 			}
-
-			function selectItem() {
+			//筛选图书
+			function selectItem(code, type, obj) {
+				var bookType1;
+				var bookType2;
+				var bookType3;
+				var bookType4;
+				//				$(obj).children().children().addClass('active');
+				if(type == 'book_type1') {
+					bookType1 = code
+				}
+				if(type == 'book_type2') {
+					bookType2 = code
+				}
+				if(type == 'book_type3') {
+					bookType3 = code
+				}
+				if(type == 'book_type4') {
+					bookType4 = code
+				}
+				var data = { username: username, nonce: nonce, result: '123', name: '', book_state: "shelving", book_type1: bookType1, book_type2: bookType2, book_type3: bookType3, book_type4: bookType4, rows: 100, offset: 0 };
+				$.ajax({
+					url: domain + '/ibook/queryBook',
+					type: 'get',
+					data: data,
+					success: function(res) {
+						if(res.statuscode == 200) {
+							if(res.items.length==0){
+								var str='<div class="nobooks">~空空如也~</div>'
+								$('.section_item').html('');
+								$('.section_item').append(str);
+							}else{
+								bindData(res);
+							}
+						}
+					},
+					error: function(err) {
+						alert(err)
+					}
+				});
 				$('.modal').css('display', 'none');
 				$('.type1').attr('src', 'img/bottom.png');
 				$('.type2').attr('src', 'img/bottom.png');
@@ -428,18 +378,28 @@
 						$('.type1').attr('src', 'img/top.png');
 						$('.type2').attr('src', 'img/bottom.png');
 						$('.type3').attr('src', 'img/bottom.png');
-						break;
-					case 'master':
-						$('.modal').css('display', 'block');
-						$('.type1').attr('src', 'img/bottom.png');
-						$('.type2').attr('src', 'img/top.png');
-						$('.type3').attr('src', 'img/bottom.png');
+						$('.type4').attr('src', 'img/bottom.png');
 						break;
 					case 'subject':
 						$('.modal').css('display', 'block');
 						$('.type1').attr('src', 'img/bottom.png');
+						$('.type2').attr('src', 'img/top.png');
+						$('.type3').attr('src', 'img/bottom.png');
+						$('.type4').attr('src', 'img/bottom.png');
+						break;
+					case 'prize':
+						$('.modal').css('display', 'block');
+						$('.type1').attr('src', 'img/bottom.png');
 						$('.type2').attr('src', 'img/bottom.png');
 						$('.type3').attr('src', 'img/top.png');
+						$('.type4').attr('src', 'img/bottom.png');
+						break;
+					case 'master':
+						$('.modal').css('display', 'block');
+						$('.type1').attr('src', 'img/bottom.png');
+						$('.type2').attr('src', 'img/bottom.png');
+						$('.type3').attr('src', 'img/bottom.png');
+						$('.type4').attr('src', 'img/top.png');
 						break;
 					default:
 						break;

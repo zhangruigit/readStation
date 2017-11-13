@@ -9,6 +9,7 @@
 		<script type="text/javascript" src="js/device.js"></script>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
 	</head>
 
 	<body>
@@ -169,7 +170,7 @@
 				年龄班级选择
 			</div>
 			<div class="user_page_input" onclick="changeClass('small')">
-				小班<span class="small"><img src="img/对号.png" class="duihao" /></span>
+				小班<span class="small"><img src="img/duihao.png" class="duihao" /></span>
 			</div>
 			<div class="user_page_input" onclick="changeClass('middle')">
 				中班<span class="middle"></span>
@@ -281,7 +282,7 @@
 			};
 
 			function selectMore(index) {
-				var str = '<img src="img/对号.png" class="more_check_duihao" />';
+				var str = '<img src="img/duihao.png" class="more_check_duihao" />';
 				if($('.m' + index).children().length == 0) {
 					$('.m' + index).html('');
 					$('.m' + index).append(str);
@@ -292,24 +293,29 @@
 			}
 
 			function changeClass(type) {
-				$('.'+type).html('');
 				switch(type) {
 					case 'small':
+						$('.small').html('');
+						$('.small').append('<img src="img/duihao.png" class="duihao" />');
 						$('.middle').html('');
 						$('.big').html('');
 						break;
 					case 'middle':
+						$('.middle').html('');
+						$('.middle').append('<img src="img/duihao.png" class="duihao" />');
 						$('.small').html('');
 						$('.big').html('');
 						break;
 					case 'big':
+						$('.big').html('');
+						$('.big').append('<img src="img/duihao.png" class="duihao" />');
 						$('.middle').html('');
 						$('.small').html('');
 						break;
 					default:
 						break;
 				}
-				$('.'+type).append('<img src="img/对号.png" class="duihao" />');
+
 			}
 		</script>
 	</body>

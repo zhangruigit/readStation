@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>图书详情</title>
+		<script type="text/javascript" src="js/device.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<style>
+				body{
+					overflow-x: hidden;
+				}
+				.line2 {
+					width: 100%;
+					height: 0.06rem;
+					background: #F4F4F4;
+				}
+				
+				.section_tite {
+					margin: 0.36rem 0;
+					font-size: 0.28rem;
+					color: #555;
+					letter-spacing: 1px;
+					border-left: 0.06rem solid red;
+					padding-left: 0.24rem;
+				}
+				
+				.section_item {
+					font-size: 0.31rem;
+					color: #333;
+					padding: 0 0.24rem;
+					margin-bottom: 0.36rem;
+					letter-spacing: 0.01rem;
+					text-align：justify;
+					font-family: "微软雅黑";
+					line-height: 0.5rem;
+				}
+				
+				.bookTitleItem {
+					font-weight: bold;
+					font-size: 0.4rem;
+					font-family: "微软雅黑";
+					padding: 0 0.24rem;
+					margin-bottom: 0.2rem;
+					    color: #333;
+				}
+				.bookName{
+					width: 100%;
+				    height: 0.8rem;
+				    background: rgba(0,0,0,0.3);
+				    position: absolute;
+				    left: 0;
+				    bottom: 0;
+				    font-size: 0.4rem;
+				    padding-left: 0.24rem;
+				    line-height: 0.8rem;
+				    color: #fff;
+				    letter-spacing: 1px;
+				    font-family: 微软雅黑;
+				}
+				.chatuWrap{
+					margin-bottom: 1rem;
+				}
+				.chatuWrap img{
+					margin-bottom: 0.5rem;
+				}
+			</style>
+			<div>
+				<div style="margin-bottom: 0.8rem;position: relative;">
+					<img src="" id='img' width="100%" height="auto" />
+					<div class="bookName"></div>
+				</div>
+				<div class="bookTitleItem">图书详情</div>
+				<div class="section_item"> 
+					年龄（岁）： <a class="book_type1_descr"></a><br /> 主题：
+					<a class="book_type2_descr"></a><br /> 作者：
+					<a class="author"></a><br /> 译者：
+					<a class="translator"></a><br /> 出版社：
+					<a class="press"></a><br /> 出版日期：
+					<a class="pub_date"></a><br /> ISBN条码：
+					<a class="ISBN"></a><br /> 大奖：
+					<a class="book_type3_descr"></a>
+					<br /> 大师：
+					<a class="book_type4_descr"></a>
+				</div>
+				<div class="bookTitleItem">内容简介</div>
+				<div class="section_item summary">
+
+				</div>
+				<div class="bookTitleItem">导读</div>
+				<div class="section_item introduction">
+
+				</div>
+				<div class="bookTitleItem">书摘与插图</div>
+				<div class="chatuWrap">
+					
+				</div>
+				<div class="footer">
+					<a href="index.html">
+						<div class="footer_item">
+							<img src="img/icon-jiayouzhan_select2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">加油站</div>
+						</div>
+					</a>
+					<a href="huibenguan.html">
+						<div class="footer_item">
+							<img src="img/icon-huiben_unselect2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">绘本馆</div>
+						</div>
+					</a>
+					<a href="shufang.html">
+						<div class="footer_item">
+							<img src="img/icon-shufang_unselect@2x.png" class="footer_icon_img" />
+							<div class="footer_nav_title">我的</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="dist/js/swiper.min.js"></script>
+		<script>
+			$(function() {
+				var domain = 'http://ibook.qik56.com:8088';
+				var username = '';
+				var nonce = Math.random().toString(36).substr(2);
+				//获取图书信息
+				var bookId = GetQueryString('id');
+				var data = { username: username, nonce: nonce, result: '123', name: '', book_state: '', id: bookId, rows: 60, offset: 0 };
+				$.ajax({
+					url: domain + '/ibook/queryBook',
+					type: 'get',
+					data: data,
+					success: function(res) {
+						if(res.statuscode == 200) {
+							console.log(res);
+							$('#img')[0].src = res.items[0].cover_url;
+							$('.bookName').text(res.items[0].name);
+							$('.book_type1_descr').text(res.items[0].book_type1_descr);
+							$('.book_type2_descr').text(res.items[0].book_type2_descr);
+							$('.book_type3_descr').text(res.items[0].book_type3_descr);
+							$('.book_type4_descr').text(res.items[0].book_type4_descr);
+							$('.author').text(res.items[0].author);
+							$('.translator').text(res.items[0].translator);
+							$('.press').text(res.items[0].press);
+							$('.pub_date').text(res.items[0].pub_date);
+							$('.ISBN').text(res.items[0].ISBN);
+							$('.summary').text(res.items[0].summary);
+							$('.introduction').text(res.items[0].introduction);
+							$.ajax({
+								type: "get",
+								url: domain + '/ibook/queryIllustration',
+								data: { username: username, nonce: nonce, result: '123', name: '', book_state: '', book_id: bookId, rows: 60, offset: 0 },
+								success: function(_res) {
+									console.log(_res);
+									var str='';
+									for(var i=0;i<_res.items.length;i++){
+										str+='<img src="'+_res.items[i].url+'" id="img_chatu" width="100%" height="auto" />';
+									}
+									$('.chatuWrap').html('');
+									$('.chatuWrap').html(str);
+								}
+							});
+						}
+					},
+					error: function(err) {
+						alert(err)
+					}
+				});
+			})
+
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+		</script>
+	</body>
+
